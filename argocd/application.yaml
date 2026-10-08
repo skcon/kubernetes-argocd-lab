@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: git@github.com:<YOUR_GITHUB_USER>/kubernetes-argocd-lab.git
+    repoURL: git@github.com:skcon/kubernetes-argocd-lab.git
     targetRevision: HEAD
     path: manifests
   destination:

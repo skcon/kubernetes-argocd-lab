@@ -15,7 +15,7 @@ argocd/application.yaml  <- optional: create the Argo CD app declaratively
 
 1. Port-forward Argo CD: `kubectl port-forward svc/argocd-server -n argocd 8080:https`, open https://localhost:8080
    (password: `kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d`)
-2. **Settings → Repositories → Connect repo** → via SSH, URL `git@github.com:<user>/kubernetes-argocd-lab.git`, paste the private key whose public key is added as a deploy key on the repo.
+2. **Settings → Repositories → Connect repo** → via SSH, URL `git@github.com:skcon/kubernetes-argocd-lab.git`, paste the private key whose public key is added as a deploy key on the repo.
 3. **New App**
    - Application name: `hello-app`, Project: `default`, Sync policy: **Automatic**
    - Repository URL: the repo from step 2, Revision: `HEAD`, Path: `manifests`
