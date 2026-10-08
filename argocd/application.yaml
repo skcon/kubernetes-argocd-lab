@@ -1,0 +1,22 @@
+# Optional: the same thing as filling in the "New App" form in the Argo CD UI.
+# Apply with: kubectl apply -f argocd/application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:<YOUR_GITHUB_USER>/kubernetes-argocd-lab.git
+    targetRevision: HEAD
+    path: manifests
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: hello-app
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
